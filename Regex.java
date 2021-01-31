@@ -33,10 +33,25 @@ class Regex {
          System.out.println("Lasst Name is not valid...");
    }
 
+ public void email() {
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter Email: ");
+      String email = sc.next();
+      String regex = "^[A-Z0-9a-z.%+-]+@[A-Za-z0-9.\\-]+\\.[A-Za-z]{2,6}";
+      Pattern pattern = Pattern.compile(regex);
+      Matcher matcher = pattern.matcher(email);
+      boolean result = matcher.matches();
+      if(result == true)
+         System.out.println("Email is Valid...");
+      else
+         System.out.println("Email is not valid...");
+   }
+
 	public static void main(String[] args) {
 		Regex regex = new Regex();
 		regex.firstName();
 		regex.lastName();
+		regex.email();
 	}
 
 }
