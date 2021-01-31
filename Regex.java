@@ -19,9 +19,24 @@ class Regex {
 			System.out.println("First Name is not valid...");
 	}
 
+ public void lastName() {
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter last Name: ");
+      String lastName = sc.next();
+      String regex = "^[A-Z]{1}[a-z]{2,}$";
+      Pattern pattern = Pattern.compile(regex);
+      Matcher matcher = pattern.matcher(lastName);
+      boolean result = matcher.matches();
+      if(result == true)
+         System.out.println("Last Name is Valid...");
+      else
+         System.out.println("Lasst Name is not valid...");
+   }
+
 	public static void main(String[] args) {
 		Regex regex = new Regex();
 		regex.firstName();
+		regex.lastName();
 	}
 
 }
