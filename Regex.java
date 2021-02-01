@@ -62,9 +62,9 @@ class Regex {
 
 	public void passwordMinimumEightCharacter() {
       Scanner sc = new Scanner(System.in);
-      System.out.println("Enter Password with minimum 8 Character: ");
-      String password = sc.next();
-      String regex = "^[a-zA-Z0-9]{8,}";
+		System.out.println("Enter Password With At least one Uppercase and minimun 8 character: ");
+		String password = sc.next();
+      String regex = "^(?=.*?[A-Z][a-zA-Z0-9]{8,}";
       Pattern pattern = Pattern.compile(regex);
       Matcher matcher = pattern.matcher(password);
       boolean result = matcher.matches();
