@@ -50,7 +50,7 @@ class Regex {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Mobile Number: ");
       String mobileNumber = sc.next();
-      String regex = "^[91]+[\s]+[0-9]{10}";
+      String regex = "^[91]+[/s]+[0-9]{10}";
       Pattern pattern = Pattern.compile(regex);
       Matcher matcher = pattern.matcher(mobileNumber);
       boolean result = matcher.matches();
@@ -60,12 +60,27 @@ class Regex {
          System.out.println("Mobile Number is not valid...");
    }
 
+	public void passwordMinimumEightCharacter() {
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter Password with minimum 8 Character: ");
+      String password = sc.next();
+      String regex = "^[a-zA-Z0-9]{8,}";
+      Pattern pattern = Pattern.compile(regex);
+      Matcher matcher = pattern.matcher(password);
+      boolean result = matcher.matches();
+      if(result == true)
+         System.out.println("Password is Valid...");
+      else
+         System.out.println("Password is not valid...");
+   }
+
 	public static void main(String[] args) {
 		Regex regex = new Regex();
 		regex.firstName();
 		regex.lastName();
 		regex.email();
 		regex.mobileNumber();
+		regex.passwordMinimumEightCharacter();
 	}
 
 }
